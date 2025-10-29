@@ -1282,3 +1282,310 @@ button:hover {
   margin-top: 1rem;
   text-align: center;
 }
+
+/* ==========================================
+   TAMBAHAN CSS RESPONSIVE
+   Tambahkan ini di akhir file style.css
+   ========================================== */
+
+/* Responsive Header */
+@media (max-width: 1024px) {
+  .container-header {
+    padding: 15px 2rem;
+  }
+
+  .row {
+    gap: 15px;
+  }
+
+  .icon-text {
+    margin-left: 0;
+    font-size: 0.85rem;
+  }
+
+  .icon-social {
+    margin-left: 10rem;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-header {
+    padding: 12px 1.5rem;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .icon-text {
+    font-size: 0.8rem;
+  }
+
+  .icon-text i {
+    font-size: 0.9rem;
+  }
+
+  .icon-social {
+    margin-left: 0;
+    gap: 12px;
+  }
+
+  /* Hide header on very small screens */
+  .container-header {
+    display: none;
+  }
+}
+
+/* Responsive Content Sections */
+@media (max-width: 1024px) {
+  .content-1 h1 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .content-1 td {
+    font-size: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  #about {
+    padding: 3rem 2rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  .about-content {
+    width: 100%;
+  }
+
+  .cofounder-section {
+    padding: 5rem 2rem;
+  }
+
+  .cofounder-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .impact-section {
+    padding: 4rem 5%;
+  }
+
+  .impact-text h2 {
+    font-size: 2.2rem;
+    margin-left: 0;
+  }
+
+  .impact-content {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .impact-buttons {
+    justify-content: center;
+  }
+
+  .causes-section {
+    padding: 3rem 5%;
+  }
+
+  .volunteer-section {
+    padding: 3rem 5%;
+  }
+
+  .volunteer-content {
+    flex-direction: column;
+  }
+
+  .volunteer-form,
+  .volunteer-info {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-1 h1 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .content-1 table {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .content-1 td {
+    padding: 0;
+    text-align: center;
+  }
+
+  .about-bottom {
+    flex-direction: column;
+  }
+
+  .section-title-causes,
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .causes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .volunteer-title {
+    font-size: 1.8rem;
+  }
+
+  .news-content {
+    flex-direction: column;
+  }
+
+  .contact-container {
+    padding: 50px 5%;
+    gap: 40px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .impact-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .impact-section::before {
+    width: 12rem;
+    height: 12rem;
+    top: -4rem;
+    left: -4rem;
+  }
+
+  .impact-section::after {
+    width: 10rem;
+    height: 10rem;
+    bottom: -5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-1 h1 {
+    font-size: 1.3rem;
+  }
+
+  .content-1 table {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .slider {
+    height: 400px;
+  }
+
+  .slide-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .slide-content {
+    right: 2%;
+  }
+
+  #about {
+    padding: 2rem 1rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .cofounder-section {
+    padding: 3rem 1rem;
+  }
+
+  .section-title-causes,
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .volunteer-form,
+  .volunteer-info {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .profiles {
+    gap: 10px;
+  }
+
+  .profile {
+    width: 50px;
+    height: 50px;
+  }
+
+  .testimonial .quote {
+    font-size: 1.2rem;
+  }
+
+  .donate-card {
+    padding: 1.5rem 2rem;
+    width: 95%;
+  }
+
+  .footer-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+/* Fix untuk slider pada mobile */
+@media (max-width: 768px) {
+  .slide::after {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .slide-content {
+    right: 5%;
+    top: 85%;
+    text-align: center;
+    left: 5%;
+  }
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}

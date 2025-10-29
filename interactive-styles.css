@@ -1,0 +1,576 @@
+/* ==========================================
+   MOBILE NAVIGATION TOGGLE
+   ========================================== */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--grey-text-color);
+  z-index: 1001;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive breakpoint */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav {
+    padding: 15px 2rem;
+    position: relative;
+  }
+
+  .logo table {
+    max-width: 250px;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo h3 {
+    font-size: 0.7rem;
+  }
+
+  .logo-img {
+    width: 40px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    padding: 5rem 2rem 2rem;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .menu li {
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .menu li:last-child {
+    border-bottom: none;
+    margin-top: 1rem;
+  }
+
+  .menu a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  .menu button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 1.5rem;
+  }
+
+  .menu {
+    width: 75%;
+  }
+
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  .logo h3 {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 12px 1rem;
+  }
+
+  .menu {
+    width: 85%;
+  }
+
+  .logo table {
+    max-width: 200px;
+  }
+
+  .logo h1 {
+    font-size: 0.9rem;
+  }
+
+  .logo h3 {
+    font-size: 0.55rem;
+  }
+
+  .logo-img {
+    width: 35px;
+  }
+}
+
+/* Menu overlay untuk menutup menu saat klik di luar */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ==========================================
+   BACK TO TOP BUTTON
+   ========================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top:hover {
+  background: #4ab39f;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   THEME SWITCHER BUTTON
+   ========================================== */
+.theme-toggle {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--grey-text-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background: #3a4149;
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   DARK THEME VARIABLES
+   ========================================== */
+:root[data-theme="dark"] {
+  --primary-color: #4ab39f;
+  --grey-text-color: #c9d1d9;
+  --h1-text-color: #e6edf3;
+  --bg-color: #0d1117;
+  --card-bg: #161b22;
+  --text-color: #c9d1d9;
+}
+
+/* Dark Theme Styles */
+[data-theme="dark"] body {
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+/* ==========================================
+   DARK THEME UNTUK POLIGON SLIDER
+   ========================================== */
+[data-theme="dark"] .slide::after {
+  background: #0d1117;
+}
+
+[data-theme="dark"] .slide-content h2 {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .slide-content p {
+  color: #8b949e;
+}
+
+/* ==========================================
+   DARK THEME UNTUK NAVIGASI
+   ========================================== */
+[data-theme="dark"] nav {
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+
+[data-theme="dark"] .logo h1 {
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .logo h3,
+[data-theme="dark"] .menu a {
+  color: #c9d1d9;
+}
+
+[data-theme="dark"] .menu button {
+  color: #0d1117;
+  border-color: #c9d1d9;
+}
+
+[data-theme="dark"] .menu button:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Dark theme untuk mobile menu */
+@media (max-width: 1024px) {
+  [data-theme="dark"] .menu {
+    background: #161b22;
+  }
+
+  [data-theme="dark"] .menu li {
+    border-bottom-color: #30363d;
+  }
+
+  [data-theme="dark"] .menu-toggle {
+    color: #c9d1d9;
+  }
+}
+
+/* ==========================================
+   DARK THEME UNTUK SECTIONS
+   ========================================== */
+[data-theme="dark"] .content-1,
+[data-theme="dark"] #about,
+[data-theme="dark"] .cofounder-section,
+[data-theme="dark"] .causes-section,
+[data-theme="dark"] .news-section,
+[data-theme="dark"] .contact-section {
+  background-color: #0d1117;
+}
+
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .cause-card,
+[data-theme="dark"] .news-card,
+[data-theme="dark"] .sidebar-box,
+[data-theme="dark"] .contact-right {
+  background-color: #161b22;
+  color: #c9d1d9;
+}
+
+[data-theme="dark"] .about-card h1,
+[data-theme="dark"] .about-card h3,
+[data-theme="dark"] .cause-content h3,
+[data-theme="dark"] .news-info h3 {
+  color: #e6edf3;
+}
+
+[data-theme="dark"] .about-card p,
+[data-theme="dark"] .cause-content p,
+[data-theme="dark"] .news-info p {
+  color: #8b949e;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background-color: #0d1117;
+  border-color: #30363d;
+  color: #c9d1d9;
+}
+
+[data-theme="dark"] .footer {
+  background-color: #161b22;
+  border-top: 1px solid #30363d;
+}
+
+[data-theme="dark"] .footer-bottom {
+  background-color: #0d1117;
+}
+
+[data-theme="dark"] .happy-customers {
+  background-color: #161b22;
+}
+
+[data-theme="dark"] .impact-section {
+  background-color: #0d1117;
+}
+
+[data-theme="dark"] .volunteer-section {
+  background-color: #3a4c5a;
+}
+
+[data-theme="dark"] .volunteer-form {
+  background-color: #161b22;
+  color: #c9d1d9;
+}
+
+[data-theme="dark"] .donate-card {
+  background-color: #161b22;
+  color: #c9d1d9;
+}
+
+[data-theme="dark"] .donate-card h2 {
+  color: #e6edf3;
+}
+
+/* ==========================================
+   NAVBAR SCROLLED STATE
+   ========================================== */
+nav.scrolled {
+  padding: 10px 10rem;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* ==========================================
+   FORM MESSAGES
+   ========================================== */
+.success-message,
+.error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+[data-theme="dark"] .success-message {
+  background-color: #1a472a;
+  color: #7fdf9e;
+  border-color: #2d5f3d;
+}
+
+[data-theme="dark"] .error-message {
+  background-color: #5a1f1f;
+  color: #ff8989;
+  border-color: #7a2b2b;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   FADE IN ANIMATION FOR SCROLL
+   ========================================== */
+.cause-card,
+.news-card,
+.about-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.cause-card.fade-in,
+.news-card.fade-in,
+.about-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+@media (max-width: 1024px) {
+  .back-to-top,
+  .theme-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .theme-toggle {
+    bottom: 75px;
+    right: 20px;
+  }
+
+  nav.scrolled {
+    padding: 10px 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-to-top,
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .back-to-top {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .theme-toggle {
+    bottom: 65px;
+    right: 15px;
+  }
+
+  nav.scrolled {
+    padding: 10px 1rem;
+  }
+}
+
+/* ==========================================
+   LOADING ANIMATION
+   ========================================== */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   HOVER EFFECTS ENHANCEMENT
+   ========================================== */
+.menu a,
+.footer-links a,
+.cause-btn,
+.impact-btn,
+.submit-btn,
+.send-btn,
+.direction-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu a::before,
+.footer-links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::before,
+.footer-links a:hover::before {
+  width: 100%;
+}
+
+/* ==========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================== */
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline-offset: 4px;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}

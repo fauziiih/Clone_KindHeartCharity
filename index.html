@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="interactive-styles.css">
     <link rel="shortcut icon" href="assets/icons/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Kind Heart Charity</title>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header class="container-header">
             <div class="row">
                 <div class="icon-text">
@@ -52,6 +56,8 @@
             </ul>
         </div>
     </nav>
+
+    <main id="main-content">
     <section id="home">
         <div class="slider">
             <div class="slides">
@@ -384,7 +390,7 @@
     <section class="happy-customers">
         <h2>Happy Customers</h2>
         <div class="testimonial">
-            <p class="quote">“ <span id="testimonial-text">Lorem Ipsum dolor sit amet, consectetur adipiscing kengan omeg kohm tokito charity theme</span> ”</p>
+            <p class="quote">" <span id="testimonial-text">Lorem Ipsum dolor sit amet, consectetur adipiscing kengan omeg kohm tokito charity theme</span> "</p>
             <div class="author" id="testimonial-author">Maria, Boss</div>
         </div>
 
@@ -426,16 +432,18 @@
 
                 <form>
                     <div class="form-row">
-                    <input type="text" placeholder="Jack">
-                    <input type="text" placeholder="Doe">
+                    <input type="text" placeholder="Jack" required>
+                    <input type="text" placeholder="Doe" required>
                     </div>
-                    <input type="email" placeholder="Jackdoe@gmail.com">
-                    <textarea placeholder="What can we help you?"></textarea>
+                    <input type="email" placeholder="Jackdoe@gmail.com" required>
+                    <textarea placeholder="What can we help you?" required></textarea>
                     <button type="submit" class="send-btn">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
+    </main>
+
     <footer class="footer">
         <div class="footer-container">
 
@@ -485,5 +493,7 @@
         </div>
     </footer>
 
+    <!-- Load JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
